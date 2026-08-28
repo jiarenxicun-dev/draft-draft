@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ドラフトドラフト</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app">
+    <header>
+      <div>
+        <h1>ドラフトドラフト</h1>
+        <p>球団×年度を2枠引き、どちらかから1人獲得</p>
+      </div>
+      <div class="status">
+        <span>残りパス <b id="passes">3</b>/3</span>
+        <span>獲得 <b id="pickCount">0</b>/19人</span>
+        <span>配置 <b id="assignedCount">0</b>/19枠</span>
+      </div>
+    </header>
+
+    <section class="controls">
+      <button id="drawBtn">🎰 2枠引く</button>
+      <button id="passBtn" class="secondary" disabled>今回はパス</button>
+      <button id="resetBtn" class="ghost">リセット</button>
+      <label><input id="allowRejected" type="checkbox" checked> 拒否→後年NPB入りを含む</label>
+    </section>
+
+    <section class="slots" id="slots">
+      <div class="slot empty">左枠</div>
+      <div class="slot empty">右枠</div>
+    </section>
+
+    <section class="team-wrap">
+      <h2>チーム編成</h2>
+      <p class="section-note">スタメン9人（DHあり）＋控え野手3人＋先発3人＋中継ぎ3人＋抑え1人＝19人</p>
+      <div id="teamBoard" class="team-board team-board-two-col"></div>
+    </section>
+
+    <section class="roster-wrap">
+      <h2>獲得選手</h2>
+      <div id="roster" class="roster empty-note">まだ獲得していません。</div>
+    </section>
+  </main>
+
+  <template id="slotTemplate">
+    <article class="slot">
+      <div class="slot-head">
+        <div>
+          <div class="eyebrow"></div>
+          <h2 class="slot-title"></h2>
+        </div>
+        <span class="count"></span>
+      </div>
+      <div class="players"></div>
+    </article>
+  </template>
+
+  <template id="playerTemplate">
+    <button class="player-card">
+      <div class="topline">
+        <strong class="name"></strong>
+        <span class="round"></span>
+      </div>
+      <div class="meta"></div>
+      <div class="career"></div>
+      <div class="badges"></div>
+      <div class="note"></div>
+    </button>
+  </template>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+{
+  "name": "draft-draft",
+  "private": true,
+  "version": "4.1.0",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "dev": "vercel dev"
+  },
+  "dependencies": {
+    "cheerio": "1.0.0"
+  }
+}
